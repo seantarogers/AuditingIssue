@@ -22,7 +22,16 @@ configuration.DisableFeature<AutoSubscribe>();
 
 The repo contains the following components:
 
-## To recreate
+#### To recreate
+
+* Open solution in Visual Studio 2015
+* Ensure that you have a SqlServer 2014 available on .\sqlserver2014 named NServiceBus
+* Ensure that you have an NServiceBus license in this location - C:\NServiceBus\License.xml
+* Configure solution to start the Audit, EventPublisher, Saga, TestMessageSender consoles
+* Type "dsc" into the TestMessageSender console window
+* Observe the EventPublisher@MyMachine Messages.Events.SomethingHappenedEvent,1.0.0.0 subscription
+* Observe the messages appear in the EventPublisher.error queue
+
 
 
 
