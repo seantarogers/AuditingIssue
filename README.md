@@ -21,12 +21,12 @@ configuration.DisableFeature<AutoSubscribe>();
 #### To recreate the problem
 
 * Open solution in Visual Studio 2015
-* Ensure that you have an empty SQL Server 2014 database named NServiceBus for the subscriptions and saga data (see connection string for details)
+* Ensure that you have an empty SQL Server 2014 database named "NServiceBus" for the subscriptions and saga data (see connection string for details)
 * Ensure that you have an NServiceBus license in this location: C:\NServiceBus\License.xml
-* Configure the solution to start the Audit, EventPublisher, Saga, TestMessageSender consoles
-* Type "dsc" into the TestMessageSender console window to send a command to the EventPublisher
-* Check the subscription table to see the **EventPublisher@MyMachine** **Messages.Events.SomethingHappenedEvent,1.0.0.0** subscription
-* Observe the second event appear in the EventPublisher.error queue
+* Configure the solution to start the *Audit*, *EventPublisher*, *Saga*, *TestMessageSender* consoles
+* Type "dsc" into the *TestMessageSender* console window to send a command to the EventPublisher
+* Check the subscription table to see the *EventPublisher@MyMachine* *Messages.Events.SomethingHappenedEvent,1.0.0.0* subscription
+* Observe the second event appear in the *EventPublisher.Error* queue
 
 #### Solution Structure
 
