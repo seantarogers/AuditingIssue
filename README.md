@@ -29,7 +29,7 @@ configuration.DisableFeature<AutoSubscribe>();
 * Configure the solution to start the Audit, EventPublisher, Saga*, TestMessageSender consoles
 * Type "dsc" into the *TestMessageSender* console window to send a command to the EventPublisher
 * Check the subscription table to see the *EventPublisher@MyMachine* *Messages.Events.SomethingHappenedEvent,1.0.0.0* subscription
-* Observe the second event appear in the EventPublisher.Error queue
+* Observe that a copy of the SomethingHappenedEvent is moved onto the EventPublisher.Error queue
 
 #### Solution Structure
 
