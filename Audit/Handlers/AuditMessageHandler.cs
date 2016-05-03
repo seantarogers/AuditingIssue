@@ -11,5 +11,6 @@
         {
             Console.WriteLine("Auditing message with correlationId {0}", message.CorrelationId);
         }
+
     }
 }

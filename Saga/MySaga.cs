@@ -20,7 +20,7 @@
 
         public void Handle(SomethingHappenedEvent message)
         {
-            Console.WriteLine("Saga has received event. correlationId: {0}", message.CorrelationId);
+            Console.WriteLine("Saga has received event with correlationId: {0}", message.CorrelationId);
         }
     }
 }
