@@ -2,8 +2,11 @@
 NServiceBus auditing issue repo
 
 #### Problem
-Adding auditing to an NServiceBus event publisher is causing a recursive subscription. The publisher is subscribing to its own 
-events.  This is resulting in the following error (and messages being added to the publishers error queue):
+I am wanting to add auditing to our NServiceBus endpoints via the following configuration.
+
+  `<AuditConfig QueueName="audit" />`
+
+However, it seems that adding auditing to an endpoint that publishes events is causing a recursive subscription.  Such that the endpoint ends up subscribing to its own events.  This is resulting in the following error (and events being added to the publishers error queue):
 
 ```cs
 
