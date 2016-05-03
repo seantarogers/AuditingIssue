@@ -32,7 +32,7 @@ configuration.DisableFeature<AutoSubscribe>();
 
 The repo contains the following components:
 
-![Image of Solution](https://raw.githubusercontent.com/seantarogers/ReliableSignalRMessaging/master/ReliableSignalRMessaging.png)
+![Image of Solution](https://github.com/seantarogers/AuditingIssue/blob/master/auditingissue.png)
 
 
 
