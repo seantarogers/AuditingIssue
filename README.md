@@ -18,7 +18,7 @@ Tried to disable AutoSubscribe in the Publisher but this did not resolve the pro
 configuration.DisableFeature<AutoSubscribe>();
 ````
 
-#### To Recreate the problem
+#### To recreate the problem
 
 * Open solution in Visual Studio 2015
 * Ensure that you have an empty SQL Server 2014 database named NServiceBus for the subscriptions and saga data (see connection string for details)
