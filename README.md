@@ -18,11 +18,7 @@ Tried to disable AutoSubscribe in the publisher, but this did not resolve the pr
 configuration.DisableFeature<AutoSubscribe>();
 ````
 
-#### Repo structure
-
-The repo contains the following components:
-
-#### To recreate
+#### To Recreate
 
 * Open solution in Visual Studio 2015
 * Ensure that you have a SqlServer 2014 available on .\sqlserver2014 named NServiceBus
@@ -31,6 +27,12 @@ The repo contains the following components:
 * Type "dsc" into the TestMessageSender console window
 * Observe the EventPublisher@MyMachine Messages.Events.SomethingHappenedEvent,1.0.0.0 subscription
 * Observe the messages appear in the EventPublisher.error queue
+
+#### Solution Structure
+
+The repo contains the following components:
+
+![Image of Solution](https://raw.githubusercontent.com/seantarogers/ReliableSignalRMessaging/master/ReliableSignalRMessaging.png)
 
 
 
