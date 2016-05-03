@@ -34,6 +34,8 @@ The repo contains the following components:
 
 ![Image of Solution](https://github.com/seantarogers/AuditingIssue/blob/master/auditingissue.png)
 
+Thanks for your help
+
 
 
 
