@@ -28,7 +28,7 @@ configuration.DisableFeature<AutoSubscribe>();
 * Ensure that you have an NServiceBus license in this location: C:\NServiceBus\License.xml
 * Configure the solution to start the Audit, EventPublisher, Saga*, TestMessageSender consoles
 * Type "dsc" into the TestMessageSender console window to send a command to the EventPublisher
-* Check the subscription table to see the *EventPublisher@MyMachine* *Messages.Events.SomethingHappenedEvent,1.0.0.0* subscription
+* Check the subscription table to see the unwanted subscription - *EventPublisher@MyMachine* *Messages.Events.SomethingHappenedEvent,1.0.0.0*
 * Observe that a copy of the SomethingHappenedEvent is moved onto the EventPublisher.Error queue
 
 #### Solution Structure
