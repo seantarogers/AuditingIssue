@@ -6,7 +6,7 @@ I want to add auditing to our NServiceBus endpoints. I am using the following co
 
   `<AuditConfig QueueName="audit" />`
 
-When this is added and I start each endpoint, an erroneous, recursive subscription is being written to my subscription table. My 'EventPublisher' endpoint is subscribing to an event that it publishes.  The 'EventPublisher' does not have an event handler for that event, so this is resulting in the following error.
+When this is added and I start each endpoint, a recursive subscription is being written to my subscription table. My 'EventPublisher' endpoint is subscribing to an event that it publishes.  The 'EventPublisher' does not have an event handler for that event, so this is resulting in the following error.
 
 ```cs
 
