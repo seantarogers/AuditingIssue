@@ -2,11 +2,11 @@
 NServiceBus auditing issue repo
 
 #### Problem
-I am wanting to add auditing to our NServiceBus endpoints via the following configuration.
+I want to add auditing to our NServiceBus endpoints. I am using the following configuration in each endpoints app.config.
 
   `<AuditConfig QueueName="audit" />`
 
-However, it seems that adding auditing to an endpoint that publishes events is causing a recursive subscription.  In other words, the endpoint is subscribing to its own events.  This is resulting in the following error (and events being added to the endpoint's error queue):
+When this is added and I start each endpoint, an erroneous, recursive subscription is being written to my subscription table. My 'EventPublisher' endpoint is subscribing to an event that it publishes.  The 'EventPublisher' does not have an event handler for that event, so this is resulting in the following error.
 
 ```cs
 
@@ -14,8 +14,10 @@ System.InvalidOperationException: No handlers could be found for message type: M
 
 ````
 
+The additional event is then being moved the the EventPublisher.Error queue.  The EventPublisher should not be subscribing to this event, it is only publishing it to the Saga endpoint.
+
 When auditing is disabled in the Event Publisher the recursive subscription does not get added and the error goes away.
-Tried to disable AutoSubscribe in the Publisher but this did not resolve the problem
+I have tried to disable AutoSubscribe in the Publisher, but this did not resolve the problem
 
 ```cs
 configuration.DisableFeature<AutoSubscribe>();
@@ -36,6 +38,11 @@ configuration.DisableFeature<AutoSubscribe>();
 The repo contains the following components:
 
 ![Image of Solution](https://github.com/seantarogers/AuditingIssue/blob/master/auditingissue.png)
+
+* The TestMessageSender is a sendonly bus and it sends a command to the EventPublisher.  
+* The EventPublisher endpoint handles the command and publishes an event to which the Saga is subscribing.
+* The Saga endpoint handles the event and that is the end of the workflow.
+* The Audit endpoint audits all messages processed by both the EventPublisher endpoint and the Saga endpoint
 
 Thanks for your help
 
