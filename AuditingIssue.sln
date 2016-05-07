@@ -16,7 +16,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0892A930-C4A0-4DB3-95C5-3FACADD7F909}"
 	ProjectSection(SolutionItems) = preProject
 		auditingissue.png = auditingissue.png
-		..\..\Users\sean rogers\Desktop\SubscriptionIssue.png = ..\..\Users\sean rogers\Desktop\SubscriptionIssue.png
+		SubscriptionIssue.png = SubscriptionIssue.png
 	EndProjectSection
 EndProject
 Global
