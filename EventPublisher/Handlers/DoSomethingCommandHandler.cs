@@ -7,18 +7,13 @@
     using NServiceBus;
     public class DoSomethingCommandHandler : IHandleMessages<DoSomethingCommand>
     {
-        private readonly IBus bus;
-
-        public DoSomethingCommandHandler(IBus bus)
-        {
-            this.bus = bus;
-        }
+        public IBus Bus { get; set; }
 
         public void Handle(DoSomethingCommand command)
         {
             Console.WriteLine("Publishing event with correlationId: {0}", command.CorrelationId);
 
-            bus.Publish(new SomethingHappenedEvent { CorrelationId = command.CorrelationId });
+            Bus.Publish(new SomethingHappenedEvent { CorrelationId = command.CorrelationId });
         }
     }
 }

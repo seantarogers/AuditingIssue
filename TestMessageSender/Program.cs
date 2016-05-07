@@ -44,7 +44,6 @@
             var busConfiguration = new BusConfiguration();
             busConfiguration.UseSerialization<JsonSerializer>();
             var conventions = busConfiguration.Conventions();
-            //busConfiguration.AssembliesToScan(AllAssemblies.Matching("NServiceBus").And("TestMessageSender").And("Messages"));
             conventions.DefiningEventsAs(t => t.Namespace != null && t.Namespace.Contains("Events"));
             conventions.DefiningCommandsAs(t => t.Namespace != null && t.Namespace.Contains("Commands"));
 

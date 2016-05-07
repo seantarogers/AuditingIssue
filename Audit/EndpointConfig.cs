@@ -1,16 +1,7 @@
 namespace Audit
 {
-    //using Autofac;
-
-    using NHibernate.Proxy;
     using NServiceBus;
-    using NServiceBus.Features;
-    using NServiceBus.Persistence.NHibernate;
-    using NServiceBus.Pipeline;
-
-    //using NServiceBus.Features;
-
-
+    
     public class EndpointConfig : IConfigureThisEndpoint, AsA_Server
     {
         public void Customize(BusConfiguration configuration)
@@ -19,23 +10,13 @@ namespace Audit
             configuration.UseSerialization<JsonSerializer>();
             configuration.UsePersistence<NHibernatePersistence>();
 
+            // stop processing incoming subscription control messages
             configuration.Pipeline.Remove("ProcessSubscriptionRequests");
 
             var conventions = configuration.Conventions();
-            //conventions.DefiningEventsAs(t => t.Namespace != null && t.Namespace.Contains("Events"));
-            //conventions.DefiningCommandsAs(t => t.Namespace != null && t.Namespace.Contains("Commands"));
-            conventions.DefiningMessagesAs(t => t.Namespace != null && t.Namespace.Contains("Messages"));
-            //configuration.AssembliesToScan(AllAssemblies.Matching("NServiceBus").And("Audit").And("Messages"));
-            //configuration.EnableInstallers();
 
-            //configuration.UseContainer<AutofacBuilder>(c => c.ExistingLifetimeScope(CreateContainer()));
+            conventions.DefiningMessagesAs(t => t.Namespace != null && t.Namespace.Contains("Messages"));
         }
-        
-        //private static IContainer CreateContainer()
-        //{
-        //    var containerBuilder = new ContainerBuilder();
-        //    return containerBuilder.Build();
-        //}
     }
 }
 
