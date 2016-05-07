@@ -1,7 +1,6 @@
 ﻿namespace EventPublisher.Handlers
 {
     using System;
-
     using Messages.Commands;
     using Messages.Events;
 
@@ -18,6 +17,7 @@
         public void Handle(DoSomethingCommand command)
         {
             Console.WriteLine("Publishing event with correlationId: {0}", command.CorrelationId);
+
             bus.Publish(new SomethingHappenedEvent { CorrelationId = command.CorrelationId });
         }
     }

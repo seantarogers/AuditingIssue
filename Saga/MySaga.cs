@@ -2,8 +2,8 @@
 {
     using System;
 
-    using Messages;
-    using Messages.Commands;
+    //using Messages;
+    //using Messages.Commands;
     using Messages.Events;
 
     using NServiceBus.Saga;
@@ -14,8 +14,8 @@
         {
             mapper.ConfigureMapping<SomethingHappenedEvent>(s => s.CorrelationId)
                 .ToSaga(m => m.CorrelationId);
-            mapper.ConfigureMapping<DoSomethingCommand>(s => s.CorrelationId)
-                .ToSaga(m => m.CorrelationId);
+            //mapper.ConfigureMapping<DoSomethingCommand>(s => s.CorrelationId)
+            //    .ToSaga(m => m.CorrelationId);
         }
 
         public void Handle(SomethingHappenedEvent message)
