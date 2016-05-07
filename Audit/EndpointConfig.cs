@@ -5,6 +5,7 @@ namespace Audit
     using NServiceBus;
     using NServiceBus.Features;
 
+
     public class EndpointConfig : IConfigureThisEndpoint
     {
         public void Customize(BusConfiguration configuration)
